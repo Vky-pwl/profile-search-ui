@@ -1,0 +1,62 @@
+<div class="container">
+  <form [formGroup]="employeeRegistrationForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm-12 p-0">
+      <h4>Employee Details</h4>
+      <hr>
+      </div>
+
+      <div class="row">
+        <div class="col-half">
+          <h5>Gender</h5>
+          <div class="input-group">
+            <input type="radio" name="gender" value="male" id="gender-male" formControlName="gender"/>
+            <label for="gender-male">Male</label>
+            <input type="radio" name="gender" value="female" id="gender-female" formControlName="gender"/>
+            <label for="gender-female">Female</label>
+          </div>
+        </div>
+        <div class="col-half">
+        <div class="input-group input-group-icon col-sm-4 p-0">
+          <input type="text" placeholder="Employee Id" formControlName="empId" />
+          <div class="input-icon"><i class="fa fa-user"></i></div>
+        </div>
+        </div>
+      </div>
+      <div class="input-group input-group-icon col-sm-4 p-0">
+        <input type="text" placeholder="First Name" formControlName="firstName" />
+        <div class="input-icon"><i class="fa fa-user"></i></div>
+      </div>
+      <div class="input-group input-group-icon col-sm-4 p-0">
+        <input type="text" placeholder="Middle Name" formControlName="middleName" />
+      </div>
+      <div class="input-group input-group-icon col-sm-4 p-0">
+        <input type="text" placeholder="Last Name" formControlName="lastName" />
+      </div>
+      <div class="input-group input-group-icon">
+        <input type="email" placeholder="Email Address" formControlName="workEmail"/>
+        <div class="input-icon"><i class="fa fa-envelope"></i></div>
+      </div>
+      <div class="input-group input-group-icon">
+        <input type="text" placeholder="Skype Id" formControlName="skypeId"/>
+        <div class="input-icon"><i class="fa fa-skype"></i></div>
+      </div>
+      <div class="input-group input-group-icon">
+          <input type="text" placeholder="Mobile" formControlName="mobile"/>
+          <div class="input-icon"><i class="fa fa-mobile"></i></div>
+        </div>
+        <div class="input-group input-group-icon">
+            <input type="text" placeholder="Work Phone" formControlName="workPhone"/>
+            <div class="input-icon"><i class="fa fa-phone-square"></i></div>
+          </div>
+    </div>
+   
+    <div class="row d_flex justify-content-end">
+        <button type="button" class="btn btn-md btn-outline-secondary mr-2">Back</button>
+        <button type="submit" class="btn btn-md btn-outline-primary" [disabled]="!employeeRegistrationForm.valid">Save</button>
+    </div>
+   
+  
+  </form>
+  
+  </div>

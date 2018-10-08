@@ -1,0 +1,79 @@
+.w-80{
+    width:80%;
+}
+.skill-item{
+    padding-left:10px; 
+    margin-right: 5px;
+}
+.level{
+    padding: 0px 4px;
+    border-radius: 2px;
+    margin-right: 4px;
+    margin-top: 2px;
+}
+.expert{
+    background: powderblue;
+}
+.intermmidiate{
+        background: greenyellow
+}
+.beginner{
+    background: yellow
+}
+.lvl{
+    background: #bd2130 !important;
+}
+.level-list{
+    position: absolute;
+  top:0;
+  background:#fff;
+  color:black;
+}
+.ps-badge{
+    color:black;
+    margin: 2px;
+    height: 16px;
+    width: 16px;
+}
+.ps-badge .remove{
+ display: none;
+}
+.ps-badge:hover .remove{
+    display: block;
+    z-index: 99;
+   }
+
+   .ps-badge .content{
+    display: block;
+    z-index: 98;
+   }
+   .ps-badge:hover .content{
+    display: none;
+      }
+      .btn span.fa {    			
+        opacity: 0;				
+    }
+    .btn.active span.fa {				
+        opacity: 1;				
+    }
+
+    input[type = 'checkbox']{
+        display: none;
+    }
+      
+/* .bg{
+    background-image:
+     -webkit-linear-gradient(-45deg, 
+                            transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                            rgba(0,0, 0, .1) 66%, transparent 66%), 
+     -webkit-linear-gradient(top, 
+                            rgba(255, 255, 255, .25), 
+                            rgba(0, 0, 0, .25)),
+    -webkit-linear-gradient(left,yellow,greenyellow,);
+
+ border-radius: 2px; 
+ background-size: 35px 20px, 100% 100%, 100% 100%;
+} */
+
+
+
