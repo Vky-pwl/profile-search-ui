@@ -25,8 +25,8 @@ export class EmployeeRegistrationModalComponent implements OnInit {
       workEmail:[''],
       skypeId:[''],
       isActive:[true],
-      creatorUserId:['1111'],
-      lastModifierUserId:['1111']
+      creatorUserId:['1111'],   //should be populated from session
+      lastModifierUserId:['1111'] //should be populated from session
     
     
    

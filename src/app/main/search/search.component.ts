@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee/employee.service';
+import { SkillService } from '../skill/skill.service';
 
 @Component({
   selector: 'app-search',
@@ -8,7 +9,7 @@ import { EmployeeService } from '../employee/employee.service';
 })
 export class SearchComponent implements OnInit {
   employees;
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService, private skillService: SkillService) { }
 
  
   skills = [];
@@ -16,17 +17,12 @@ export class SearchComponent implements OnInit {
   selectedSkills = [];
   selectedLevels = [];
   skillDropdownSettings = {};
-  levelDropdownSettings = {};
+
   clear(){
-    this.selectedLevels = [];
     this.selectedSkills = [];
   }
   ngOnInit(){
-      this.skills = [{'id':1,'skillName':'Angular','levelName':'B'},
-      {'id':2,'skillName':'Java','levelName':'A'},
-      {'id':3,'skillName':'JavaScript','levelName':'I'},
-                     
-                    ];
+      this.getSkills();
       this.selectedSkills = [];
       this.skillDropdownSettings = { 
                                 singleSelection: false, 
@@ -36,14 +32,7 @@ export class SearchComponent implements OnInit {
                                 enableSearchFilter: true,
                                 classes:"w-80"
                               }; 
-     this.levelDropdownSettings = { 
-      singleSelection: false, 
-      text:"Select Level",
-      selectAllText:'Select All',
-      unSelectAllText:'UnSelect All',
-      enableSearchFilter: true,
-      classes:"w-25"
-    };            
+           
   }
   onItemSelect(item:any){
       console.log(item);
@@ -64,6 +53,12 @@ export class SearchComponent implements OnInit {
                 this.employees = response;
     });
 
-}
+   }
+
+   getSkills(){
+    this.skillService.getSkills().subscribe((response)=>{
+               this.skills = response;
+    });
+     }
 }
 

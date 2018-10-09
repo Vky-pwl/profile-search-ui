@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+
 import { EmployeeRegistrationModalComponent } from './employee-registration-modal/employee-registration-modal.component';
 import { EmployeeService } from './employee.service';
 import { Employee } from './employee.model';
@@ -16,7 +18,6 @@ export class EmployeeComponent implements OnInit {
   constructor(private modalService: BsModalService, private employeeService: EmployeeService) { }
 
   ngOnInit() {
-
     this.getEmployees();
   }
 

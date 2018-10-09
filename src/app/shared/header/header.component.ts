@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AppStateService } from '../../core/app-state.service';
 
 @Component({
@@ -7,18 +7,18 @@ import { AppStateService } from '../../core/app-state.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  menuState : string = 'in';
-  constructor(private appState: AppStateService) { }
+  @Output() toggleSideMenu  = new EventEmitter<boolean>();
+  toggle:boolean = false;
+
+  constructor() { }
 
   ngOnInit() {
-    this.appState.toggleMenu$.subscribe(state => {
-      this.menuState = state;
-    });
+ 
   }
 
-  toggleMenu(){
-  this.appState.toggleMenu$.next(this.menuState === 'out' ? 'in' : 'out');
-  debugger;
+  toggleSideBar(){
+    this.toggle = !this.toggle;
+    this.toggleSideMenu.emit(true);
   }
 
 }

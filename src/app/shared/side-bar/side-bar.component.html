@@ -1,25 +1,31 @@
-<nav >
-  <div class="sidebar-sticky">
-    <ul class="nav flex-column">
-        <li class="nav-item" >
-            <a class="nav-link"  href="javascript:void()" routerLink="employee" [routerLinkActive]="'active'">
-              <span class="fa fa-user"></span>
-               Manage Employee
+  <!-- Sidebar  -->
+  <nav id="sidebar" [ngClass]="{'active':toggle}">
+    <div class="sidebar-header">
+        <h4> <img class="mr-2" src="assets/img/logo.png" alt="" width="22" height="22"> <span style="font-family: sans-serif;font-weight: 500">Accolite</span></h4>
+        <strong><img class="mr-2" src="assets/img/logo.png" alt="" width="32" height="32"></strong>
+    </div>
+
+    <ul class="list-unstyled components">
+       
+        <li routerLink="search" [routerLinkActive]="'active'">
+            <a href="javascript:void();">
+                <i class="fa fa-search"></i>
+                Profile Search
             </a>
-          </li>
-      <li class="nav-item">
-        <a class="nav-link"  href="javascript:void()"  routerLink="skill" [routerLinkActive]="'active'">
-          <span class="fa fa-home"></span>
-          Manage Skills
-        </a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link"  href="javascript:void()"  routerLink="search" [routerLinkActive]="'active'">
-            <span class="fa fa-home"></span>
-            Profile Search
-          </a>
         </li>
-  
-     </ul>
-  </div>
+        <li routerLink="employee" [routerLinkActive]="'active'">
+            <a href="javascript:void();">
+                <i class="fa fa-user"></i>
+                 Manage Employee
+            </a>
+        </li>
+        <li routerLink="skill" [routerLinkActive]="'active'">
+            <a href="javascript:void();">
+                <i class="fa fa-cogs"></i>
+                Manage Skills
+            </a>
+        </li>
+    </ul>
+
+
 </nav>

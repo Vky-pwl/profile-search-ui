@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
-import { Employee } from "./employee.model";
+import { HttpClient} from "@angular/common/http";
+
 
 import { GlobalVariable } from '../../core/path-config';
+import { Employee } from "./employee.model";
 import { EmployeeSkill } from "../search/employee-skill.model";
 
 const GET_EMPLOYEE_LIST = 'employee';
@@ -13,13 +14,11 @@ const GET_SKILL_BASED_PROFILES = 'employee/'
 
 @Injectable()
 export class EmployeeService {
-
  constructor(private http: HttpClient){
-
  }
  
 
- createEmployee(employee){
+createEmployee(employee){
     return this.http.post<Employee>(GlobalVariable.BASE_API_URL + CREATE_EMPLOYEE,employee);
 }
 getEmployeeById(id){

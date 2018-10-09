@@ -1,18 +1,27 @@
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap">
-  <div class="brand-bar mr-0 es-brand">
-    <img class="mr-2" src="assets/img/logo.png" alt="" width="32" height="32">
-    <span>Accolite Softwares</span>
-    <span class="fa fa-bars icon"  (click)="toggleMenu()"></span>
-  </div>
-  <div class="flex-nav">
-    
-    <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a class="nav-link" href="javascript:void">
-          <img src="assets/img/default-user-img.png" class="img-fluid img-circle" height="22px" width="22px" alt="Responsive image">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
 
-        </a>
-      </li>
-    </ul>
+    
+          
+          
+    <button type="button" id="sidebarCollapse" class="navbar-btn" [ngClass]="{'active':toggle}" (click)="toggleSideBar()">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+      
+      <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="assets/img/default-user-img.png" class="img-fluid img-circle" height="22px" width="22px" alt="Responsive image">
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="javascript:void();">
+                    <img src="assets/img/default-user-img.png" class="img-fluid img-circle" height="22px" width="22px" alt="Responsive image">
+                  </a>
+              </li>
+          </ul>
+      </div>
   </div>
 </nav>
