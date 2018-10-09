@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Employee } from '../employee.model';
+import { BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-employee-registration-modal',
@@ -10,7 +11,8 @@ import { Employee } from '../employee.model';
 export class EmployeeRegistrationModalComponent implements OnInit {
   @Output() submit$  =  new EventEmitter<Employee>();
   employeeRegistrationForm;
-  constructor(private fb: FormBuilder) { }
+  
+  constructor(private fb: FormBuilder, public bsModalRef: BsModalRef) { }
 
 
   ngOnInit() {
@@ -19,7 +21,7 @@ export class EmployeeRegistrationModalComponent implements OnInit {
       firstName: ['', Validators.required],
       middleName: [''],
       lastName: [''],
-      gender:['1'],
+      gender:['male'],
       mobile:[''],
       workPhone:[''],
       workEmail:[''],
@@ -27,9 +29,6 @@ export class EmployeeRegistrationModalComponent implements OnInit {
       isActive:[true],
       creatorUserId:['1111'],   //should be populated from session
       lastModifierUserId:['1111'] //should be populated from session
-    
-    
-   
     });
   }
   onSubmit(){
