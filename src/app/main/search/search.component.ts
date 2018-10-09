@@ -13,15 +13,27 @@ export class SearchComponent implements OnInit {
 
  
   skills = [];
-  levels = [];
   selectedSkills = [];
-  selectedLevels = [];
   skillDropdownSettings = {};
+  showFilters = true;
 
   clear(){
     this.selectedSkills = [];
+    this.showFilters = true;
   }
   ngOnInit(){
+      this.skills = [{
+          id:1,
+          skillName:'Angular'
+      },
+      {
+        id:2,
+        skillName:'Java'
+    }
+,{
+    id:3,
+    skillName:'React'
+}]
       this.getSkills();
       this.selectedSkills = [];
       this.skillDropdownSettings = { 
@@ -35,18 +47,26 @@ export class SearchComponent implements OnInit {
            
   }
   onItemSelect(item:any){
-      console.log(item);
+    this.showFilters = true;
+    this.showFilters = true;
+
      
   }
   OnItemDeSelect(item:any){
       console.log(item);
+      this.showFilters = true;
+
      
   }
   onSelectAll(items: any){
       console.log(items);
+    this.showFilters = true;
+
   }
   onDeSelectAll(items: any){
       console.log(items);
+    this.showFilters = true;
+
   }
   getSkillBasedProfiles(skill){
     this.employeeService.getSkillBasedProfiles(skill).subscribe((response)=>{

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AppStateService } from '../../core/app-state.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ export class HeaderComponent implements OnInit {
   @Output() toggleSideMenu  = new EventEmitter<boolean>();
   toggle:boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
  
@@ -21,4 +22,7 @@ export class HeaderComponent implements OnInit {
     this.toggleSideMenu.emit(true);
   }
 
+  logout(){
+    this.router.navigate(['/logout']);
+    }
 }

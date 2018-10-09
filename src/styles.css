@@ -6,12 +6,7 @@ body {
   height: 100%;
   font-size: .875rem;
 }
-.icon{
-  color: white;
-  margin:5px;
-  cursor: pointer;
-  font-size: 1em;
-}
+
 
  *,
 *:before,
@@ -147,7 +142,7 @@ span {
 
 #sidebar ul li a:hover {
     color: #4b5354;
-    background: #f4f7f9;
+    background: #ffffff;
 }
 
 #sidebar ul li a i {
@@ -157,7 +152,7 @@ span {
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #4b5354;
-    background: #f4f7f9;
+    background: #ffffff;
 }
 
 a[data-toggle="collapse"] {
