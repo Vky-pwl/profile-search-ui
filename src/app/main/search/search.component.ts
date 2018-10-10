@@ -11,6 +11,7 @@ export class SearchComponent implements OnInit {
   employees;
   constructor(private employeeService: EmployeeService, private skillService: SkillService) { }
 
+
  
   skills = [];
   selectedSkills = [];
@@ -22,18 +23,7 @@ export class SearchComponent implements OnInit {
     this.showFilters = true;
   }
   ngOnInit(){
-      this.skills = [{
-          id:1,
-          skillName:'Angular'
-      },
-      {
-        id:2,
-        skillName:'Java'
-    }
-,{
-    id:3,
-    skillName:'React'
-}]
+    
       this.getSkills();
       this.selectedSkills = [];
       this.skillDropdownSettings = { 
@@ -42,43 +32,94 @@ export class SearchComponent implements OnInit {
                                 selectAllText:'Select All',
                                 unSelectAllText:'UnSelect All',
                                 enableSearchFilter: true,
-                                classes:"w-80"
+                                classes:"w-80",
+                                primaryKey:"skillName"
                               }; 
            
   }
+
+
   onItemSelect(item:any){
     this.showFilters = true;
     this.showFilters = true;
+    this.applyFilter();
 
      
   }
   OnItemDeSelect(item:any){
       console.log(item);
       this.showFilters = true;
+      this.applyFilter();
 
      
   }
   onSelectAll(items: any){
       console.log(items);
     this.showFilters = true;
+    this.applyFilter();
 
   }
   onDeSelectAll(items: any){
       console.log(items);
     this.showFilters = true;
+    this.applyFilter();
 
   }
-  getSkillBasedProfiles(skill){
-    this.employeeService.getSkillBasedProfiles(skill).subscribe((response)=>{
-                this.employees = response;
-    });
 
-   }
 
    getSkills(){
     this.skillService.getSkills().subscribe((response)=>{
                this.skills = response;
     });
      }
+
+     applyFilter(){
+      let fromatedSkills = [];
+      this.selectedSkills.forEach(skill => {
+        if(skill.beginner){
+          let o = {
+            skillName:skill.skillName,
+            levelName:'Beginner'
+          }
+          fromatedSkills.push(o);
+        }
+  
+        if(skill.Intermediate){
+          let o = {
+            skillName:skill.skillName,
+            levelName:'Intermediate'
+          }
+          fromatedSkills.push(o);
+        }
+  
+  
+        if(skill.expert){
+          let o = {
+            skillName:skill.skillName,
+            levelName:'Expert'
+          }
+          fromatedSkills.push(o);
+        }
+        if(!skill.expert && !skill.Intermediate && !skill.beginner){
+          let o = {
+            skillName:skill.skillName
+          }
+          fromatedSkills.push(o);
+        }
+        
+      });
+      if(fromatedSkills.length){
+
+        this.employeeService.getSkillBasedProfiles(fromatedSkills).subscribe((response)=>{
+          this.employees = response;
+             });
+
+      }
+      else{
+        this.employees = [];
+      }
+     
+  
+         }
 }
 

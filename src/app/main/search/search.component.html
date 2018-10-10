@@ -1,6 +1,6 @@
 <div class="col-md-12 ml-sm-auto col-lg-12 px-4">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Employee</h1>
+    <h1 class="h2">Profile</h1>
     <angular2-multiselect [data]="skills" [(ngModel)]="selectedSkills" [settings]="skillDropdownSettings" (onSelect)="onItemSelect($event)"
       (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">
 
@@ -33,7 +33,7 @@
 
       <div class="btn-group mr-2">
         <button class="btn btn-sm btn-outline-secondary" (click)="clear()">Clear</button>
-        <button class="btn btn-sm btn-outline-secondary" (click)="showFilters = !showFilters">Toggle</button>
+        <!-- <button class="btn btn-sm btn-outline-secondary" (click)="showFilters = !showFilters">Toggle</button> -->
       </div>
 
     </div>
@@ -55,15 +55,15 @@
             <td>{{skill.skillName}}</td>
             <td>
                 <label class="check-container">Beginner
-                    <input type="checkbox">
+                    <input type="checkbox" [(ngModel)]="skill.beginner" (change)="applyFilter()">
                     <span class="checkmark"></span>
                   </label>
                   <label class="check-container">Intermidiate
-                    <input type="checkbox">
+                    <input type="checkbox" [(ngModel)]="skill.Intermediate" (change)="applyFilter()">
                     <span class="checkmark"></span>
                   </label>
                   <label class="check-container">Expert
-                    <input type="checkbox">
+                    <input type="checkbox" [(ngModel)]="skill.expert" (change)="applyFilter()">
                     <span class="checkmark"></span>
                   </label>
             </td>

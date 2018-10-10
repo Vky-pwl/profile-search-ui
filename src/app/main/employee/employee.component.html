@@ -13,6 +13,7 @@
         <thead class="thead-dark">
           <tr>
             <th>#</th>
+            <th>Employee Id</th>
             <th>Name</th>
             <th>Email</th>
             <th>Mobile</th>
@@ -21,7 +22,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let employee of employees">
-              <td>#</td>
+            <td>
+              <span class="fa fa-link btn" (click)="link(employee)"></span>
+              <span class="fa fa-edit btn" (click)="edit(employee)"></span>
+              
+            </td>
+            <td>{{employee.empId}}</td>
             <td>{{employee.firstName +' ' + (employee.middleName ? employee.middleName : '') + ' ' + employee.lastName}}</td>
             <td>{{employee.workEmail}}</td>
             <td>{{employee.mobile}}</td>

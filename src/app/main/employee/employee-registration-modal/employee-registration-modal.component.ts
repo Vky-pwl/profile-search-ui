@@ -11,17 +11,38 @@ import { BsModalRef } from 'ngx-bootstrap';
 export class EmployeeRegistrationModalComponent implements OnInit {
   @Output() submit$  =  new EventEmitter<Employee>();
   employeeRegistrationForm;
+  selectedEmployee;
   
   constructor(private fb: FormBuilder, public bsModalRef: BsModalRef) { }
 
 
   ngOnInit() {
-  this.employeeRegistrationForm  = this.fb.group({
+  
+   if(this.selectedEmployee){
+
+    this.employeeRegistrationForm  = this.fb.group({
+      empId:[this.selectedEmployee.empId, Validators.required],
+      firstName: [this.selectedEmployee.firstName, Validators.required],
+      middleName: [this.selectedEmployee.middleName],
+      lastName: [this.selectedEmployee.lastName],
+      gender:[this.selectedEmployee.gender],
+      mobile:[this.selectedEmployee.mobile],
+      workPhone:[this.selectedEmployee.workPhone],
+      workEmail:[this.selectedEmployee.workEmail],
+      skypeId:[this.selectedEmployee.skypeId],
+      isActive:[this.selectedEmployee.isActive],
+      creatorUserId:[this.selectedEmployee.creatorUserId],   //should be populated from session
+      lastModifierUserId:[this.selectedEmployee.lastModifierUserId] //should be populated from session
+    })
+
+   }
+   else{
+    this.employeeRegistrationForm  = this.fb.group({
       empId:['', Validators.required],
       firstName: ['', Validators.required],
       middleName: [''],
       lastName: [''],
-      gender:['male'],
+      gender:[1],
       mobile:[''],
       workPhone:[''],
       workEmail:[''],
@@ -29,7 +50,10 @@ export class EmployeeRegistrationModalComponent implements OnInit {
       isActive:[true],
       creatorUserId:['1111'],   //should be populated from session
       lastModifierUserId:['1111'] //should be populated from session
-    });
+    })
+
+   }
+;
   }
   onSubmit(){
     this.submit$.emit(this.employeeRegistrationForm.value);

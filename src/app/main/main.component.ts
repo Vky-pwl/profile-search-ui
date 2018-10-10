@@ -20,7 +20,7 @@ export class MainComponent implements OnInit {
  
   }
   toggleSideMenu(event){
-    debugger;
+  
     this.toggle = !this.toggle;
   }
 
