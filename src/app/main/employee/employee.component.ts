@@ -57,6 +57,10 @@ export class EmployeeComponent implements OnInit {
      });
   }
 
+  search(key){
+
+  }
+
   link(employee){ 
     let initialState = {
       selectedEmployee : employee
