@@ -19,7 +19,6 @@ export class SearchBarComponent implements OnInit {
 
   @HostListener('keyup')
   keyup(){
-    console.log(this.search.nativeElement.value);
     this.searchKey.emit(this.search.nativeElement.value);
   }
 

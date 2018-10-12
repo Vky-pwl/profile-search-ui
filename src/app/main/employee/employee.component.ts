@@ -50,7 +50,7 @@ export class EmployeeComponent implements OnInit {
      this.bsModalRef.content.submit$.subscribe((employee)=>{
        this.employeeService.createEmployee(employee).subscribe((response)=>{
         this.bsModalRef.hide();
-        this.alertService.success('Employee Sucessfully Updated');
+        this.alertService.success('Employee Successfully Updated');
         this.getEmployees();
        });
      
@@ -58,7 +58,14 @@ export class EmployeeComponent implements OnInit {
   }
 
   search(key){
-
+  if(key.length){
+    this.employees = this.employees.filter((employee)=>{
+         return employee.firstName.includes(key);
+    });
+  }
+  else{
+    this.getEmployees();
+  }
   }
 
   link(employee){ 
@@ -76,7 +83,7 @@ export class EmployeeComponent implements OnInit {
 
        this.employeeService.mapEmployeeAndSkill(data.employeeId,skills).subscribe((response)=>{
         this.bsModalRef.hide();
-        this.alertService.success('Skill Sucessfully Attached');
+        this.alertService.success('Skill Successfully Attached');
         this.getEmployees();
        });
      
